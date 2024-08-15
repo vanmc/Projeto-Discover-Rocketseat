@@ -40,8 +40,8 @@ body * { /*o * significa seletor universal, aplicando todas as características 
 }
 
 #container { /*seletor de ID*/
-  width: 360px; 
-  margin right: auto;
+  width: 100%; 
+  max-width: 588px;
   margin: 56px auto 0px;
   padding: 0 24px;
 }
