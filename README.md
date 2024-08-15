@@ -30,9 +30,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Git e Github
 - Figma
 
-## 💻 Projeto
+## 💻 Projeto 
 
 O DevLinks é um agregador de links para servir como um cartão de visitas online e será atualizado a medidas que seus conteúdos forem sendo desenvolvidos.
+<a href="https://vanmc.github.io/Projeto-Discover-Rocketseat/"> Acesse o projeto online!</a>
 
 ## 🔖 Layout
 
