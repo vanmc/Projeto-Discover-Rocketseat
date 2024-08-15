@@ -18,7 +18,7 @@ Projeto feito ao longo do minicurso "Discover", da Rocketseat.
 <br>
 
 <p align="center">
-  <img alt="Imagem de ilustração do DevLinks pela Rocketseat." src="https://s3-alpha.figma.com/hub/file/3662877101/1fc5d4d4-c944-4a14-8b6d-5e6e519a3242-cover.png" width="100%">
+  <img alt="Imagem de ilustração do DevLinks pela Rocketseat." src=".github/preview.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
