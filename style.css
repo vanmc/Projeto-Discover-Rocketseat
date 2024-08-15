@@ -1,0 +1,162 @@
+* { /*tirar todas as configurações iniciais do navegador*/
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*a medida do tamanho da caixa será medida a partir do tamanho da borda*/
+}
+:root {
+  --text-color: rgb(255, 245, 245); 
+  --bg-url: url(./assets/bg-desktop.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: #36454F;
+  --bg-url: url(./assets/bg-desktop-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05); 
+  --surface-color-hover: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(./assets/sun.svg);
+}
+
+body {
+  /*
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center; /*o ponto de interesse é em relação à imagem, e não ao viewport, então no eixo Y ele tá no top e no eixo x ele está centralizado
+  background-size: cover;
+  posso agrupor tudo em uma única propriedade <fazer isso chama-se shorthand) em background, seguindo a ordem: color, imagem, repeat, position/size (cover): 
+  */
+  background: var(--bg-url) no-repeat top center/cover;
+}
+
+body * { /*o * significa seletor universal, aplicando todas as características pros elementos*/
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+#container { /*seletor de ID*/
+  width: 360px; 
+  margin right: auto;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+}
+/*div = elemento block; img = elemento inline (e portanto n consigo aplicar o margin: auto - o block permite o margin auto e então é necessário transformar para ele para aplicar ou transformar a id pai colocando text-align:center */
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px; /*a altura geralmente segue o tamanho da página e dos conteúdos e por isso nem sempre precisa ser definida.*/
+}
+
+#profile p {
+  font-weight: 500; 
+  /*por padrão os navegadores já possuem a font-size de 16px*/
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+#switch {
+  position: relative; /*vai relativizar o absoluto em relação ao elemento switch*/
+  width: 64px;
+  margin: 4px auto;
+}
+
+#switch button{
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50px;
+  position: absolute; /*faz uma sobreposição de camadas*/
+  z-index: 1; /*determina a camada ao qual ele está para a primeira (nesse caso), as propriedades top, left, right, bottom permite que o elemente "passeie" por toda a viewport.*/
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); /*aceita diversas propriedades (como rotacionar, colocar em perspectiva, escalar etc)*/
+
+}
+
+.light #switch button{
+  right: 0;
+  left: initial; /*volta para sua maneira inicial*/
+}
+
+#switch span{ /*por padrão o span possui display inline*/
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur 4px;
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+ul {
+  list-style: none; /*retira os pontinhos da lista*/
+  display: flex;
+  flex-direction: column;
+  /*A propriedade CSS \"flex-direction: row\" define que os itens dentro de um container flex devem ser posicionados em uma linha horizontal, enquanto \"flex-direction: column\" define que os itens devem ser posicionados em uma coluna vertical.*/
+  gap: 16px;
+  padding: 24px 0;
+}
+/*o padrão de flex-direction é row; gap adiciona espaço entre os elementos/conteúdos
+o align-items alinha seguindo uma linha na horizontal, enquanto o justify-content na vertical*/
+
+ul li a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px; 
+  background-color: var(--surface-color); /*red, green, blue, alpha (transparência)*/
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-weight: 500; /*font-weight acima de 400 é bold*/
+  transition: background 0.3s; /*ordem: quais propriedades vão transicionar, em quanto tempo elas vão. */
+}
+
+ul li a:hover{ /*pseudo-selector - Os pseudosseletores são uma forma de selecionar elementos HTML com base em seu estado ou posição em relação a outros elementos.*/
+  background-color: var(--surface-color-hover); /*red, green, blue, alpha (transparência)*/
+  border: 1px solid var(--text-color);
+  
+}
+/*a tag a é inline*/
+
+#social-links{
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+  font-size: 24px;
+  align-items: center;
+}
+
+#social-links a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%; /*fica como uma bolinha perfeita*/
+}
+
+#social-links a:hover{
+  background-color: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-color);
+
+}
