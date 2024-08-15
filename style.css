@@ -32,6 +32,7 @@ body {
   posso agrupor tudo em uma única propriedade <fazer isso chama-se shorthand) em background, seguindo a ordem: color, imagem, repeat, position/size (cover): 
   */
   background: var(--bg-url) no-repeat top center/cover;
+  /* height: 100vh; */
 }
 
 body * { /*o * significa seletor universal, aplicando todas as características pros elementos*/
@@ -159,4 +160,14 @@ footer {
   font-size: 14px;
   color: var(--text-color);
 
+}
+/* media queries; @ = at rules*/
+@media (min-width: 700){
+  :root {
+    --bg-url: url(./assets/bg-mobile.jpg)
+  }
+
+  .light {
+    --bg-url: url(./assets/bg-mobile-light.jpg)
+  }
 }
