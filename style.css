@@ -1,11 +1,12 @@
-* { /*tirar todas as configurações iniciais do navegador*/
+/*retirar todas as configurações iniciais*/
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box; /*a medida do tamanho da caixa será medida a partir do tamanho da borda*/
 }
 :root {
   --text-color: rgb(255, 245, 245); 
-  --bg-url: url(./assets/bg-desktop.jpg);
+  --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -15,7 +16,7 @@
 
 .light {
   --text-color: #36454F;
-  --bg-url: url(./assets/bg-desktop-light.jpg);
+  --bg-url: url(./assets/bg-mobile-light.jpg);
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05); 
   --surface-color-hover: rgba(0, 0, 0, 0.02);
@@ -32,7 +33,7 @@ body {
   posso agrupor tudo em uma única propriedade <fazer isso chama-se shorthand) em background, seguindo a ordem: color, imagem, repeat, position/size (cover): 
   */
   background: var(--bg-url) no-repeat top center/cover;
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 body * { /*o * significa seletor universal, aplicando todas as características pros elementos*/
@@ -77,16 +78,19 @@ body * { /*o * significa seletor universal, aplicando todas as características 
   border: 0;
   border-radius: 50px;
   position: absolute; /*faz uma sobreposição de camadas*/
-  z-index: 1; /*determina a camada ao qual ele está para a primeira (nesse caso), as propriedades top, left, right, bottom permite que o elemente "passeie" por toda a viewport.*/
-  left: 0;
   top: 50%;
+  left: 0;
+  z-index: 1; /*determina a camada ao qual ele está para a primeira (nesse caso), as propriedades top, left, right, bottom permite que o elemente "passeie" por toda a viewport.*/
   transform: translateY(-50%); /*aceita diversas propriedades (como rotacionar, colocar em perspectiva, escalar etc)*/
-
+  animation: slide-back 0.3s;
 }
 
 .light #switch button{
-  right: 0;
-  left: initial; /*volta para sua maneira inicial*/
+animation: slide-in 0.3s forwards; /*forward mantem as propriedades finais*/
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span{ /*por padrão o span possui display inline*/
@@ -164,10 +168,30 @@ footer {
 /* media queries; @ = at rules*/
 @media (min-width: 700){
   :root {
-    --bg-url: url(./assets/bg-mobile.jpg)
+    --bg-url: url(./assets/bg-desktop.jpg)
   }
 
   .light {
-    --bg-url: url(./assets/bg-mobile-light.jpg)
+    --bg-url: url(./assets/bg-desktop-light.jpg)
   }
+}
+
+/*animações (pode ser qualquer nome)*/
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+from {
+  left: 50%;
+}
+to {
+  left: 0;
+}
+
 }
